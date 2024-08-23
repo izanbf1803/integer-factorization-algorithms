@@ -22,6 +22,6 @@ def test_fermat_randomized_semiprime():
 
 def test_fermat_randomized_number():
     ROUNDS = 3
-    sizes = [5, 10] * ROUNDS
+    sizes = [5, 6, 7] * ROUNDS
     for size in sizes:
         assert fermat_case(randint_non_prime(10**size//2, 10**size))

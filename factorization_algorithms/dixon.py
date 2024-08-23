@@ -49,7 +49,7 @@ def dixon(N, B=None, H=None, MAX_IT=10**9, MIN_B=2, MAX_B=10**8, debug=False):
             if remaining in big_prime:
                 relations.add(Relation(
                     A=(z * big_prime[remaining].A) % N,
-                    Q=w * big_prime[remaining].Q % N,
+                    Q=w * big_prime[remaining].Q,
                     factorization=factorization + big_prime[remaining].factorization,
                 ))
                 del big_prime[remaining]

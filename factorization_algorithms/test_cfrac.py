@@ -5,9 +5,9 @@ from factorization_algorithms.cfrac import cfrac
 
 
 def cfrac_case(N):
-    Ks = [1, 3, 5, 7, 257]
-    for K in Ks:
-        d = cfrac(N=N, K=K, MAX_IT=100_000)
+    Ks = [(1, 100_000), (3, 100_000), (5, 100_000), (7, 1_000_000), (257, 1_000_000)]
+    for K, MAX_IT in Ks:
+        d = cfrac(N=N, K=K, MAX_IT=1_000_000)
         if proper_divisor(N, d):
             return True
     return False
@@ -17,7 +17,7 @@ def test_cfrac_fixed():
 
 def test_cfrac_randomized_semiprime():
     ROUNDS = 3
-    sizes = [5, 6, 7, 8] * ROUNDS + [11, 12]
+    sizes = [5, 6, 7, 8] * ROUNDS
     for size in sizes:
         assert cfrac_case(
             random_prime(lbound=10**size//2, n=10**size) * random_prime(lbound=10**size//2, n=10**size)

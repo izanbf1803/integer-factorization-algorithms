@@ -13,7 +13,7 @@ def test_dixon_fixed():
 
 def test_dixon_randomized_semiprime():
     ROUNDS = 3
-    sizes = [3, 4] * ROUNDS
+    sizes = [3, 4] * ROUNDS + [8]
     for size in sizes:
         assert dixon_case(
             random_prime(lbound=10**size//2, n=10**size) * random_prime(lbound=10**size//2, n=10**size)
@@ -21,6 +21,6 @@ def test_dixon_randomized_semiprime():
 
 def test_dixon_randomized_number():
     ROUNDS = 3
-    sizes = [5, 8] * ROUNDS
+    sizes = [5, 6] * ROUNDS + [12]
     for size in sizes:
         assert dixon_case(randint_non_prime(10**size//2, 10**size))
