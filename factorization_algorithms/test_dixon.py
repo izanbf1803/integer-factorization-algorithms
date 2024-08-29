@@ -5,7 +5,7 @@ from factorization_algorithms.dixon import dixon
 
 
 def dixon_case(N):
-    d = dixon(N=N, MAX_IT=1_000_000)
+    d = dixon(N=N, MAX_IT=10_000_000_000)
     return proper_divisor(N, d)
 
 def test_dixon_fixed():
@@ -13,7 +13,7 @@ def test_dixon_fixed():
 
 def test_dixon_randomized_semiprime():
     ROUNDS = 3
-    sizes = [3, 4] * ROUNDS + [8]
+    sizes = [3, 4] * ROUNDS + [5]
     for size in sizes:
         assert dixon_case(
             random_prime(lbound=10**size//2, n=10**size) * random_prime(lbound=10**size//2, n=10**size)

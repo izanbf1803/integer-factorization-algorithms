@@ -8,6 +8,9 @@ def trial_case(N):
     d = trial(N=N)
     return proper_divisor(N, d)
 
+def test_prime_power_detection():
+    assert trial_case((10**9 + 7)**1000)
+
 def test_trial_fixed():
     assert trial_case(113 * 339339663889 * 26333829143185762927)
 

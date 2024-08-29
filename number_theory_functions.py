@@ -10,6 +10,21 @@ def ilog(b, N):
     return ans
 
 
+def iroot(N, k):
+    # Return the integer k-th root of N, rounded towards zero.
+    return Integer(N).nth_root(k, truncate_mode=True)[0]
+
+
+def is_power(N):
+    # Return (True, exponent, root) if its kth-power (k>=2) or (False, None, None)
+    mx = ilog(2, N)+1
+    for k in range(2, mx+1):
+        x = iroot(N, k)
+        if x**k == N:
+            return (True, k, x)
+    return (False, None, None)
+
+
 def ceil_sqrt(N):
     s = isqrt(N)
     while s**2 < N:

@@ -7,7 +7,7 @@ from factorization_algorithms.factorization_algorithm import factorization_algor
 @factorization_algorithm
 def cfrac(N, K=1, B=None, MIN_B=2, MAX_B=10**9, MAX_IT=10**6, debug=False):
     if B is None:
-        B = L_notation(N, alpha=1/2, c=1/2)
+        B = L_notation(K*N, alpha=1/2, c=1/2)
     B = clamp(MIN_B, B, MAX_B)
 
     big_prime_limit = B**2
